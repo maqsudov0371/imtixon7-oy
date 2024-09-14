@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+
+    <!--==============================
+      Hero Area
+    ==============================-->
+    <div class="  ">
+        {% for i in footer %}
+            <div class="vs-hero-carousel hero-layout6" image="{{ i.bigimage.url }}" data-height="810" data-container="1900" data-slidertype="responsive" >
+                <!-- Slide 1-->
+                <div class="ls-slide" data-ls="duration:12000; transition2d:5; kenburnsscale:1.2;">
+                    <img width="658" height="543" src="{{ i.bigimage.url }}" class="ls-l ls-hide-tablet ls-hide-phone" alt="image" style="top:215px; left:969px; background-size:inherit; background-position:inherit;">
+                    <p style="top:365px; left:375px; font-weight:700; background-size:inherit; background-position:inherit; font-size:35px; font-family:Amatic SC; color:#ffffff; letter-spacing:1px;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:-100; durationin:1500; delayin:800; easingin:easeOutQuint;">{{ i.title }}</p>
+                    <p style="top:485px; left:375px; font-weight:700; background-size:inherit; background-position:inherit; font-size:65px; color:#fcd55c; font-family:'Advent Pro', sans-serif;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetxin:-200; durationin:1500; delayin:400; easingin:easeOutQuint;">{{ i.text }}</p>
+                    <div style="top:611px; left:375px; background-size:inherit; background-position:inherit;" class="ls-l ls-hide-tablet ls-hide-phone" data-ls="offsetyin:100; durationin:1500; delayin:800; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint;">
+                        <a href="shop.html" class="vs-btn style5 ls-btn">Start Shopping<i class="far fa-angle-right"></i></a>
+                    </div>
+                    <p style="top:150px; left:100px; font-weight:700; background-size:inherit; background-position:inherit; font-family:Amatic SC; color:#ffffff; letter-spacing:1px; font-size:70px;" class="ls-l ls-hide-desktop ls-hide-phone" data-ls="offsetyin:-100; durationin:1500; delayin:800; easingin:easeOutQuint;">{{ i.title }}</p>
+                    <p style="top:358px; left:100px; font-weight:700; background-size:inherit; background-position:inherit; font-size:100px; color:#fcd55c; font-family:'Advent Pro', sans-serif;" class="ls-l ls-hide-desktop ls-hide-phone" data-ls="offsetxin:-200; durationin:1500; delayin:400; easingin:easeOutQuint;">{{ i.text }}</p>
+                    <span  style="top:550px; left:100px; font-weight:700; background-size:inherit; background-position:inherit; padding-right:60px; padding-bottom:30px; padding-left:60px; font-family:'Lato',sans-serif; font-size:30px; color:#fff; border-radius:9999px; border-top:3px solid #fff; border-right:3px solid #fff; border-bottom:3px solid #fff; border-left:3px solid #fff; padding-top:30px;" class="ls-l ls-hide-desktop ls-hide-phone" data-ls="offsetyin:200; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hovereasingin:easeOutQuint; hoverbgcolor:#ffffff; hovercolor:#76a713;">START SHOPPING</span>
+                    <span style="top:490px; left:100px; font-weight:700; background-size:inherit; background-position:inherit; padding-right:100px; padding-bottom:50px; padding-left:100px; font-family:'Lato',sans-serif; font-size:60px; color:#fff; border-radius:9999px; border-top:3px solid #fff; border-right:3px solid #fff; border-bottom:3px solid #fff; border-left:3px solid #fff; padding-top:50px;" class="ls-l ls-hide-desktop ls-hide-tablet" data-ls="offsetyin:200; durationin:1500; delayin:400; easingin:easeOutQuint; offsetyout:200; durationout:1500; easingout:easeOutQuint; hover:true; hovereasingin:easeOutQuint; hoverbgcolor:#ffffff; hovercolor:#76a713;">START SHOPPING</span>
+
+
+                    <img width="126" height="151" src="{{ i.miniimage1.url }}" class="ls-l" alt="image" style="top:-300px; left:642px; background-size:inherit; background-position:inherit;" data-ls="offsetyin:top; durationin:1500; delayin:15000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
+                    <img width="114" height="97" src="{{ i.miniimage2.url }}" class="ls-l" alt="leaf" style="top:-300px; left:1500px; background-size:inherit; background-position:inherit;" data-ls="offsetyin:top; durationin:1500; delayin:2000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
+                    <img width="60" height="66" src="{{ i.miniimage3.url }}" class="ls-l" alt="image" style="top:-300px; left:50px; background-size:inherit; background-position:inherit;" data-ls="offsetyin:top; durationin:1500; delayin:5000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
+                    <img width="115" height="96" src="{{ i.miniimage4.url }}" class="ls-l" alt="leaf" style="top:-300px; left:1200px; background-size:inherit; background-position:inherit;" data-ls="offsetyin:top; durationin:1500; delayin:4000; easingin:easeOutQuint; rotatein:random(-160,160); loop:true; loopoffsety:150sh; loopduration:10000; looprotate:random(-180,180); loopcount:-1; looprepeatdelay:6000; static:forever;">
+                </div>
+            </div>
+        {% endfor %}
+        
+    </div>
+    <!--==============================
+    Categories Area
+    ==============================-->
+
+
+
+
+    <section class="sec-bg3 vs-shop-wrapper   " data-bg-src="/static/assets/img//shape/bg-00778.png">
+        <div class="section-title text-center">
+            <div class="sec-icon"><img src="/static/assets/img//icons/sec-icon-2.png" alt="icon"></div>
+            <span class="sub-title4">Latest Arrivals</span>
+            <h2 class="sec-title3">Feature Products</h2>
+        </div>
+        <div class="container position-relative">
+
+
+                <div id="BestSeller">
+                    <div class="row gx-2px justify-content-center">
+                        {% for product in products %}
+                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                                <div class="vs-product-box3 ">
+                                    <div class="product-img">
+                                        <a href="shop-details.html"><img src="{{ product.image.url }}" alt="Product Image" class="w-100"></a>
+                                    </div>
+                                    <div class="actions-btn">
+                                        <a href="wishlist.html" class="icon-btn"><i class="fal fa-heart"></i></a>
+                                        <a href="cart.html" class="vs-btn style4 cart-btn"><i class="fal fa-cart-plus"></i>Add To Cart</a>
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="product-rating-box">5.0<div class="star-rating" role="img" aria-label="Rated 5.00 out of 4"><span style="width:100%">Rated <strong class="rating">5.00</strong> out of 4</span></div>
+                                        </div>
+                                        <h4 class="product-title"><a href="shop-details.html">{{ product.name }}</a></h4>
+                                        <span class="price"><strong>{{ product.price }}</strong><del>{{ product.oldprice }}</del></span>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="bottom-btn">
+                <a href="{% url 'main:shop' %}" class="vs-btn style3">All Product<i class="fas fa-angle-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!--==============================
+        Blog Area
+    ==============================-->
+    <section class="vs-blog-wrapper space-top space-md-bottom">
+        <div class="container">
+            <div class="section-title text-center">
+                <div class="sec-icon"><img src="/static/assets/img//icons/sec-icon-2.png" alt="icon"></div>
+                <span class="sub-title4">Tips & News</span>
+                <h2 class="sec-title3">Recent Articles</h2>
+            </div>
+            <div class="row vs-carousel" data-slide-show="3" data-sm-slide-show="1">
+                {% for blog in products %}
+                    <div class="col-xl-4">
+                        <div class="vs-blog blog-style1">
+                            <div class="blog-img image-scale-hover">
+                                <a href="blog-details.html"><img src="{{ blog.image.url }}" alt="Blog Image" class="w-100"></a>
+                            </div>
+                            <div class="blog-content">
+                                <div class="tags">
+                                    <a href="{% url 'main:shop' %}">Read More >></a>
+                                </div>
+                                <a href="blog-details.html" class="blog-date">{{ blog.created_at|date:"F-j-Y" }}</a>
+                                <h3 class="blog-title"><a href="blog-details.html">{{ blog.other_information }}</a></h3>
+                                <p class="blog-text">{{ blog.about_products }}</p>
+                            </div>
+                            <div class="meta-box">
+                                <a href="blog-details.html">Posted By Admin</a>
+                                <a href="blog-details.html">5 Comments</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

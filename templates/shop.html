@@ -1,0 +1,235 @@
+{% extends 'base_shop.html' %}
+{% block shop %}
+    <!--==============================
+    Breadcumb
+    ==============================-->
+    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="assets/img/breadcumb/breadcumb-img-1.jpg">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title">Organic</h1>
+                <ul class="breadcumb-menu-style1 mx-auto">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Shop</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--==============================
+    Feature Products
+    ==============================-->
+    <section class="vs-shop-wrapper position-relative space-top space-md-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-xl-9">
+                    <div class="vs-sort-bar row justify-content-center justify-content-sm-between align-items-center pb-4 mb-1 ">
+                        <div class="col-auto mb-3 mb-sm-0">
+                            <div class="nav" role="tablist">
+                                <a href="shop.html" class="icon-btn style3 active me-2" id="tab-shop-grid" data-bs-toggle="tab" data-bs-target="#tab-grid" role="tab" aria-controls="tab-grid" aria-selected="true"><i class="fas fa-th"></i></a>
+                            </div>
+                        </div>
+                        <div class="col d-none d-md-block">
+                            <div class="border-top"></div>
+                        </div>
+
+                    </div>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active" id="tab-grid" role="tabpanel" aria-labelledby="tab-shop-grid">
+                            <div class="row">
+                                
+                                {% for product in products %}
+                                    <div class="col-sm-6 col-xl-4">
+                                        <div class="vs-product-box1 thumb_swap">
+                                            <div class="product-img">
+                                                <a href="{% url 'main:shop_detail' pk=product.pk %}">
+                                                    <img src="{{ product.image.url }}" alt="Product Image" class="w-100">
+                                                </a>
+                                            </div>
+                                            <div class="product-content">
+                                                <div class="actions-btn">
+                                                    <a href="cart.html"><i class="fal fa-cart-plus"></i></a>
+                                                    <a href="{{ product.image.url }}" class="popup-image"><i class="far fa-search"></i></a>
+                                                </div>
+                                                <h4 class="product-title h5 mb-0"><a href="{% url 'main:shop_detail' pk=product.pk %}">{{ product.name }}</a></h4>
+                                                <span class="price font-theme"><strong>${{ product.price }}</strong></span>
+                                                <p class="m-0 rating fs-xs text-theme lh-base">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </p>
+                                            
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-4 col-xl-3">
+                    <aside class="sidebar-area">
+                        <div class="widget">
+                            <h3 class="widget_title">Filter By</h3>
+                            <form method="GET" action="{% url 'main:shop' %}" id="price-filter-form">
+                                <div class="range-slider-area">
+                                    <strong class="fs-xs">Price</strong>
+                                    <input type="range" name="min_price" min="0" max="500" value="{{ min_price|default:0 }}" id="minAmount" class="form-control">
+                                    <input type="range" name="max_price" min="0" max="500" value="{{ max_price|default:25000 }}" id="maxAmount" class="form-control">
+                                    <div class="price-amount">
+                                        <span>Min: ${{ min_price|default:0 }}</span>
+                                        <span>Max: ${{ max_price|default:25000 }}</span>
+                                        <div class="login_btn_wrapper">
+                                            <button type="submit" class="btn btn-primary login_btn">Sort</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="widget widget_categories">
+                            <h3 class="widget_title">Categories</h3>
+                            <ul>
+                                {% for category in categories %}
+                                    <li>
+                                        <a href="{% url 'main:products_by_category' category.id %}" class="filter-category">{{ category.title }}</a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+    <style>
+/* Price Range Slider Styles */
+input[type=range] {
+    appearance: none; /* Standard property */
+    -webkit-appearance: none; /* For WebKit browsers */
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none; /* Standard property */
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    margin-top: -5px;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: #ddd;
+    border-radius: 5px;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+}
+
+input[type=range]:focus::-moz-range-track {
+    background: #ccc;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 5px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    border-width: 5px 0;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+input[type=range]::-ms-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    margin-top: -5px;
+}
+
+input[type=range]:focus::-ms-fill-lower {
+    background: #ccc;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #ccc;
+}
+
+/* Additional Styles for Filter Section */
+.range-slider-area {
+    margin: 20px 0;
+}
+
+.range-slider-area strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.price-amount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.price-amount span {
+    font-size: 14px;
+}
+
+.login_btn_wrapper {
+    margin-top: 10px;
+}
+
+.btn-primary.login_btn {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.btn-primary.login_btn:hover {
+    background-color: #0056b3;
+    border-color: #004080;
+}
+
+    </style>
+{% endblock %}

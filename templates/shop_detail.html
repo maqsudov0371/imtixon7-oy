@@ -1,0 +1,91 @@
+{% extends 'base_shop.html' %}
+{% block shop %}
+
+<div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="/static/assets/img./breadcumb/breadcumb-img-1.jpg">
+    <div class="container">
+        <div class="breadcumb-content text-center">
+            <h1 class="breadcumb-title">{{ product.name }}</h1>
+            <ul class="breadcumb-menu-style1 mx-auto">
+                <li><a href="{% url 'main:home' %}">Home</a></li>
+                <li class="active">{{ product.name }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section class="vs-shop-wrapper shop-details space-top space-md-bottom">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-md-6 col-xl-5 mb-30 mb-md-0">
+                <div class="row gx-2 product-thumb-img pt-10 vs-carousel" data-slide-show="4" id="thumbproductimg" data-asnavfor="#bigproductimg">
+                    <div class="col-auto">
+                        <div class="thumb" style="width: 500px; height: 500px; object-fit: cover;">
+                            <img src="{{ product.image.url }}" alt="{{ product.name }}" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="product-content">
+                    <h3 class="product-title mb-1">{{ product.name }}</h3>
+                    <span class="price font-theme"><strong>${{ product.price }}</strong></span>
+                    <p class="fs-xs my-4">{{ product.description }}</p>
+                    <div class="mt-2 link-inherit fs-xs">
+                        <p><strong class="text-title me-3 font-theme">Availability :</strong>{% if product.stock > 0 %}<a href="#"><i class="far fa-check-square me-2 ms-1"></i>In Stock</a>{% else %}Out of Stock{% endif %}</p>
+                    </div>
+                    <div class="actions mb-4 pb-2">
+                        <div class="quantity style2 me-4">
+                            <input type="number" class="qty-input" value="1" min="1" max="{{ product.stock }}">
+                            <button class="quantity-minus qut-btn"><i class="far fa-chevron-down"></i></button>
+                            <button class="quantity-plus qut-btn"><i class="far fa-chevron-up"></i></button>
+                        </div>
+                        <a href="#" class="vs-btn shadow-none">Add To Cart</a>
+                    </div>
+                    <div class="product_meta">
+                        <span class="posted_in">Category: <a href="#">{{ product.category }}</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comments Tab -->
+        <ul class="nav product-tab-style1 mb-30 justify-content-center mb-4" id="productTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="description-tab" data-bs-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Comments</a>
+            </li>
+        </ul>
+
+        <!-- Comments Section -->
+        <div class="tab-content" id="productTabContent">
+            <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    {% if comments %}
+                        <ul>
+                            {% for comment in comments %}
+                                <li>
+                                    <strong>{{ comment.user.username }}:</strong>
+                                    <p>{{ comment.text }}</p>
+                                    <small>Posted on {{ comment.created_at }}</small>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <p>No comments yet.</p>
+                    {% endif %}
+                    
+                    <!-- Comment Form -->
+                    <h4>Leave a comment</h4>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

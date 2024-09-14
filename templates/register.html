@@ -1,0 +1,68 @@
+{% extends 'base_shop.html' %}
+
+{% block shop %}
+    <!--==============================
+    Breadcumb
+    ==============================-->
+    <div class="breadcumb-wrapper breadcumb-layout1 bg-fluid pt-200 pb-200" data-bg-src="assets/img/breadcumb/breadcumb-img-1.jpg">
+        <div class="container">
+            <div class="breadcumb-content text-center">
+                <h1 class="breadcumb-title"> Register</h1>
+                <ul class="breadcumb-menu-style1 mx-auto">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="active">Register</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <section class="space-top space-md-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="page-10" class="post-10 page type-page status-publish hentry page--item">
+                        <div class="woocommerce--content">
+                            <div class="woocommerce">
+                                <div class="woocommerce-notices-wrapper"></div>
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-6">
+                                        <div class="login-register-wrapper">
+                                            <div class="tab-content">
+                                                <!-- Login Tab Content -->
+
+                                                <!-- Register Tab Content -->
+                                                <div class="tab-pane fade show active" id="register" role="tabpanel" aria-labelledby="register-tab">
+                                                    <!-- Register formasi -->
+                                                    <form action="{% url 'main:register' %}" method="post" id="register-form">
+                                                        {% csrf_token %}
+                                                        <div class="form-group">
+                                                            <input type="text" name="username" class="form-control" required placeholder="Username*">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="email" name="email" class="form-control" required placeholder="Email*">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" name="password" class="form-control" required placeholder="Password*">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="password" name="password2" class="form-control" required placeholder="Re-enter Password*">
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <input type="text" name="phone" class="form-control" required placeholder="Phone*">
+                                                        </div>
+                                                        <div class="login_btn_wrapper">
+                                                            <button type="submit" class="btn btn-primary login_btn">Register</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
